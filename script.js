@@ -19,7 +19,7 @@ const loop = setInterval(() => {
     pipe.style.left = `${pipePosition}px`;
     mario.style.animation = 'none';
     mario.style.bottom = `${marioPosition}px`;
-    mario.src='game-over.png'
+    mario.src='img/brenda_morta-1.png-removebg-preview.png'
     mario.style.width = '75px'
     mario.style.marginLeft = '50px'
     clearInterval(loop);
