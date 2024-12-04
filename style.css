@@ -21,14 +21,7 @@
   height: 162px;
 }
  
-.tubo1 {
-  left: 100%;
-  animation: tubo-animation 3s infinite linear;
-  height: 96px;
-  width: 150px;
-  bottom: -14px;
-}
- 
+
 .tubo2 {
   left: 120%;
   animation: tubo-animation 3s infinite linear;
