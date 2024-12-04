@@ -1,29 +1,58 @@
-const mario = document.querySelector('.mario');
-const pipe = document.querySelector('.pipe');
- 
+const brenda = document.querySelector('.brenda');
+const tubos = document.querySelectorAll('.tubo');
+
 const jump = () => {
-  mario.classList.add('jump'); 
+  brenda.classList.add('jump');
   setTimeout(() => {
-    mario.classList.remove('jump');
+    brenda.classList.remove('jump');
   }, 500);
 }
- 
-const loop = setInterval(() => {
-  console.log('loop ');
 
-  const pipePosition = pipe.offsetLeft;
-  const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
-  console.log(marioPosition);
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80){
-    pipe.style.animation = 'none';
-    pipe.style.left = `${pipePosition}px`;
-    mario.style.animation = 'none';
-    mario.style.bottom = `${marioPosition}px`;
-    mario.src='img/brenda_morta-1.png-removebg-preview.png'
-    mario.style.width = '75px'
-    mario.style.marginLeft = '50px'
-    clearInterval(loop);
-  }
+const reposicionarTubos = () => {
+  tubos.forEach(tubo => {
+    const tuboPosition = tubo.offsetLeft;
+    
+    // Se o tubo saiu da tela, reposiciona
+    if (tuboPosition <= -60) {
+      // Adiciona uma distância aleatória entre os tubos
+      const distanciaMinima = 200; // Distância mínima entre os tubos
+      const distanciaMaxima = 300; // Distância máxima entre os tubos
+      const novaPosicao = window.innerWidth + Math.floor(Math.random() * (distanciaMaxima - distanciaMinima) + distanciaMinima);
+      tubo.style.left = `${novaPosicao}px`;
+
+      // Adiciona uma altura aleatória para o tubo (opcional)
+      // tubo.style.top = `${Math.floor(Math.random() * (window.innerHeight - 300) + 100)}px`;
+    }
+  });
+}
+
+const loop = setInterval(() => {
+  console.log('loop');
+
+  tubos.forEach(tubo => { // Loop sobre todos os tubos
+    const tuboPosition = tubo.offsetLeft;
+    const brendaPosition = +window.getComputedStyle(brenda).bottom.replace('px', '');
+    
+    // Verifica colisão
+    if (tuboPosition <= 120 && tuboPosition > 0 && brendaPosition < 80) {
+      // Quando a Brenda colide, pausa todos os tubos
+      tubos.forEach(t => {
+        t.style.animationPlayState = 'paused';
+        t.style.left = `${t.offsetLeft}px`; // Mantém o tubo na mesma posição
+      });
+      
+      brenda.style.animation = 'none'; 
+      brenda.style.bottom = `${brendaPosition}px`; 
+      brenda.src = 'img/brenda_morta-1.png-removebg-preview.png'; 
+      brenda.style.width = '150px'; 
+      brenda.style.transition = 'none'
+      brenda.style.position = 'absolute'; 
+
+      clearInterval(loop);
+    }
+
+    reposicionarTubos(); // Reposiciona os tubos
+  });
 }, 10);
- 
-document.addEventListener('keydown', jump);
+
+document.addEventListener('keydown', jump); 

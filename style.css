@@ -1,72 +1,93 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+.game-board {
+  width: 100%;
+  height: 584px;
+  border-bottom: 50px solid rgb(45, 104, 194);
+  background: linear-gradient(#87CEEB, #E0F6FF);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.tubo {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  height: 162px;
+}
+ 
+.tubo1 {
+  left: 100%;
+  animation: tubo-animation 3s infinite linear;
+  height: 96px;
+  width: 150px;
+  bottom: -14px;
+}
+ 
+.tubo2 {
+  left: 120%;
+  animation: tubo-animation 3s infinite linear;
+  animation-delay: 1s;
+  height: 103px;
+  width: 185px;
+  bottom: -32px;
+}
+ 
+.tubo3 {
+  left: 140%;
+  animation: tubo-animation 3s infinite linear;
+  animation-delay: 2s;
+  height: 100px;
+  width: 177px;
+  bottom: -17px;
+}
+ 
+.tubo4 {
+  left: 160%;
+  animation: tubo-animation 3s infinite linear;
+  animation-delay: 3s;
+  height: 91px;
+  width: 95px;
+  bottom: -16px;
+}
+ 
+@keyframes tubo-animation {
+  from {
+    left: 100%;
   }
-  .game-board{
-    width:100%;
-    height: 584px;
-    border-bottom:50px solid green;
-    background:linear-gradient(#87CEEB, #E0F6FF);
-    margin:0 auto;
-    position:relative;
-    overflow:hidden;
+  to {
+    left: -80px;
   }
-  .pipe{
-    position:absolute;
-    bottom: -15px;
-    width:80px;
-    
-    animation:pipe-animation 2.0s infinite linear;
+}
+ 
+.brenda {
+  width: 150px;
+  position: absolute;
+  bottom: -10px;
+  z-index: 2;
+  left: 10px; 
+}
+ 
+.jump {
+  animation: jump 600ms ease-out;
+}
+ 
+@keyframes jump {
+  0% {
+    bottom: 0;
   }
-  @keyframes pipe-animation{
-    from{
-      right:-80px;
-    }
-    to{
-      right:100%;
-    }
+  40% {
+    bottom: 200px;
   }
-   
-  .mario{
-    width:150px;
-    margin-top: 500px;
-    position:absolute;
-    bottom:-10px;
-   
+  60% {
+    bottom: 200px;
   }
-  .jump{
-    animation:jump 500ms ease-out; 
+  100% {
+    bottom: 0;
   }
-  @keyframes jump{
-    0%{
-      bottom:0;
-    }
-    40%{
-      bottom:180px;
-    }
-    50%{
-      bottom:180px;
-    }
-    60%{
-      bottom:180px;
-    }
-    100%{
-      bottom:0;
-    }
-  }
-   
-  .clouds{
-    width:550px;
-    position:absolute;
-    animation:clouds-animation 15s infinite linear;
-  }
-   
-  @keyframes clouds-animation{
-    from{
-      right:-550px;
-    }
-    to{
-      right:100%;
-    }
-  }
+}
