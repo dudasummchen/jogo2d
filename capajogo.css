@@ -1,0 +1,16 @@
+/* Importando a fonte 8-Bit Arcade In */
+@font-face {
+    font-family: '8-Bit Arcade In'; /* Nome da fonte */
+    src: url('fonts/8-bit Arcade In.ttf') format('truetype'); /* Caminho para o arquivo da fonte */
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Aplica a fonte 8-Bit Arcade In no título h1 */
+  h1 {
+    font-family: '8-Bit Arcade In', sans-serif; /* Aplica a fonte personalizada ao título */
+    font-size: 48px;
+    text-align: center; /* Centraliza o texto */
+    color: #000000; /* Cor do texto */
+  }
+  

@@ -20,23 +20,22 @@
   width: 80px;
   height: 162px;
 }
- 
 
 .tubo2 {
   left: 120%;
   animation: tubo-animation 3s infinite linear;
   animation-delay: 1s;
-  height: 103px;
-  width: 185px;
-  bottom: -32px;
+  height: 105px;
+  width: 129px;
+  bottom: -33px;
 }
  
 .tubo3 {
   left: 140%;
   animation: tubo-animation 3s infinite linear;
   animation-delay: 2s;
-  height: 100px;
-  width: 177px;
+  height: 97px;
+  width: 114px;
   bottom: -17px;
 }
  
@@ -44,9 +43,9 @@
   left: 160%;
   animation: tubo-animation 3s infinite linear;
   animation-delay: 3s;
-  height: 91px;
-  width: 95px;
-  bottom: -16px;
+  height: 174px;
+  width: 111px;
+  bottom: -57px;
 }
  
 @keyframes tubo-animation {
@@ -59,15 +58,14 @@
 }
  
 .brenda {
-  width: 150px;
+  width: 196px;
   position: absolute;
-  bottom: -10px;
-  z-index: 2;
+  bottom: -16px;
   left: 10px; 
 }
  
 .jump {
-  animation: jump 600ms ease-out;
+  animation: jump 700ms ease-out;
 }
  
 @keyframes jump {
@@ -75,7 +73,7 @@
     bottom: 0;
   }
   40% {
-    bottom: 200px;
+    bottom: 250px;
   }
   60% {
     bottom: 200px;
